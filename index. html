@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Site</title>
 
+<style>
+body {
+    background: black;
+    color: lime;
+    text-align: center;
+    font-family: Arial;
+}
+
+button {
+    padding: 15px;
+    margin-top: 20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Welcome 🔥</h1>
+<button onclick="go()">Enter</button>
+
+<script>
+function go(){
+    window.location.href = "about.html";
+}
+</script>
+
+</body>
+</html>
