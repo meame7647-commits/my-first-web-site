@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>404</title>
+<style>
+  body {
+    margin: 0;
+    background: black;
+    color: #00ff00;
+    font-family: monospace;
+    overflow: hidden;
+  }
+  #center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  button {
+    padding: 16px 34px;
+    font-size: 18px;
+    background: black;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    cursor: pointer;
+  }
+  #terminal {
+    display: none;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+  }
+  .error {
+    color: #ff0000;
+  }
+
+  /* Visitor + Feedback UI */
+  #stats {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    font-size: 12px;
+  }
+  #feedbackBtn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+  }
+  #feedbackBox {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 10px;
+    background: black;
+    border: 1px solid #00ff00;
+    padding: 10px;
+  }
+  textarea, input {
+    background: black;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    margin-bottom: 6px;
+    resize: none;
+  }
+</style>
+</head>
+<body>
+
+<div id="center">
+  <h2>404 - SITE NOT FOUND</h2>
+  <button onclick="startHack()">HACK ME</button>
+</div>
+
+<div id="terminal"></div>
+
+<!-- REAL Visitor counter -->
+<div id="stats">👁️ Visitors: <span id="visits">...</span></div>
+
+<!-- Feedback -->
+<div id="feedbackBtn">
+  <button onclick="toggleFeedback()">Feedback</button>
+</div>
+
+<div id="feedbackBox">
+  <form action="https://formsubmit.co/meame7647@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New Feedback from Hack Simulation">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="">
+    <input type="text" name="name" placeholder="Your name (optional)">
+    <textarea name="message" rows="4" cols="22" placeholder="Your feedback..." required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</div>
+
+<script>
+/* Terminal text */
+const lines = [
+  "Booting exploit framework...",
+  "Connecting to target...",
+  "Scanning open ports...",
+  "Firewall bypassed ✔",
+  "",
+  "[!] GOOGLE ACCOUNT HACKED",
+  "[!] DEBIT CARD HACKED",
+  "[!] SYSTEM HACKED",
+  "",
+  "Extracting credentials...",
+  "Injecting payload...",
+  "Encrypting local data...",
+  "Uploading packets...",
+  "",
+  "ERROR: Unexpected environment detected",
+  "Switching mode...",
+  "",
+  "Simulation finished.",
+  "No real accounts touched.",
+  "No money requested.",
+  "No system harmed.",
+  "",
+  "😎 Just a simulation."
+];
+
+function startHack() {
+  document.getElementById("center").style.display = "none";
+  const terminal = document.getElementById("terminal");
+  terminal.style.display = "block";
+
+  let i = 0;
+  const interval = setInterval(() => {
+    const line = lines[i];
+    const span = document.createElement("span");
+
+    if (line.includes("HACKED") || line.includes("ERROR")) {
+      span.className = "error";
+    }
+
+    span.textContent = line + "\n";
+    terminal.appendChild(span);
+    window.scrollTo(0, document.body.scrollHeight);
+
+    i++;
+    if (i >= lines.length) clearInterval(interval);
+  }, 500);
+}
+
+/* REAL visitor counter (global) */
+fetch('https://api.countapi.xyz/hit/hack-simulation-site/visits')
+  .then(res => res.json())
+  .then(res => {
+    document.getElementById("visits").textContent = res.value;
+  });
+
+/* Feedback toggle */
+function toggleFeedback() {
+  const box = document.getElementById("feedbackBox");
+  box.style.display = box.style.display === "none" ? "block" : "none";
+}
+</script>
+
+</body>
+</html>
